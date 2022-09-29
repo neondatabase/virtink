@@ -62,6 +62,7 @@ type Instance struct {
 
 type CPU struct {
 	Sockets               uint32 `json:"sockets,omitempty"`
+	SocketsMax            uint32 `json:"socketsMax,omitempty"`
 	CoresPerSocket        uint32 `json:"coresPerSocket,omitempty"`
 	DedicatedCPUPlacement bool   `json:"dedicatedCPUPlacement,omitempty"`
 }

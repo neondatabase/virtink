@@ -68,8 +68,8 @@ func main() {
 	if len(vcpuToPCPU) > 0 {
 		cpuAffinity = fmt.Sprintf("[%s]", strings.Join(vcpuToPCPU, ","))
 	}
-	cloudHypervisorCmd = append(cloudHypervisorCmd, "--cpus", fmt.Sprintf("boot=%d,topology=%d:%d:%d:%d,affinity=%s",
-		vmConfig.Cpus.BootVcpus, vmConfig.Cpus.Topology.ThreadsPerCore, vmConfig.Cpus.Topology.CoresPerDie,
+	cloudHypervisorCmd = append(cloudHypervisorCmd, "--cpus", fmt.Sprintf("boot=%d,max=%d,topology=%d:%d:%d:%d,affinity=%s",
+		vmConfig.Cpus.BootVcpus, vmConfig.Cpus.MaxVcpus, vmConfig.Cpus.Topology.ThreadsPerCore, vmConfig.Cpus.Topology.CoresPerDie,
 		vmConfig.Cpus.Topology.DiesPerPackage, vmConfig.Cpus.Topology.Packages, cpuAffinity))
 
 	memoryArg := fmt.Sprintf("size=%d", vmConfig.Memory.Size)
@@ -117,6 +117,13 @@ func main() {
 	fmt.Println(strings.Join(cloudHypervisorCmd, " "))
 }
 
+func Max(x, y uint32) uint32 {
+ if x > y {
+   return x
+ }
+ return y
+}
+
 func buildVMConfig(ctx context.Context, vm *virtv1alpha1.VirtualMachine) (*cloudhypervisor.VmConfig, error) {
 	vmConfig := cloudhypervisor.VmConfig{
 		Payload: &cloudhypervisor.PayloadConfig{
@@ -124,8 +131,9 @@ func buildVMConfig(ctx context.Context, vm *virtv1alpha1.VirtualMachine) (*cloud
 		},
 		Cpus: &cloudhypervisor.CpusConfig{
 			BootVcpus: int(vm.Spec.Instance.CPU.Sockets * vm.Spec.Instance.CPU.CoresPerSocket),
+			MaxVcpus: int(Max(vm.Spec.Instance.CPU.SocketsMax, vm.Spec.Instance.CPU.Sockets) * vm.Spec.Instance.CPU.CoresPerSocket),
 			Topology: &cloudhypervisor.CpuTopology{
-				Packages:       int(vm.Spec.Instance.CPU.Sockets),
+				Packages:       int(Max(vm.Spec.Instance.CPU.SocketsMax, vm.Spec.Instance.CPU.Sockets)),
 				DiesPerPackage: 1,
 				CoresPerDie:    int(vm.Spec.Instance.CPU.CoresPerSocket),
 				ThreadsPerCore: 1,

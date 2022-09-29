@@ -873,6 +873,9 @@ spec:
                       sockets:
                         format: int32
                         type: integer
+                      socketsMax:
+                        format: int32
+                        type: integer
                     type: object
                   disks:
                     items:
