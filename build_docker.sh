@@ -2,9 +2,11 @@
 
 set -xe
 
-DOCKER_BUILDKIT=1 
-REGISTRY=sergeyneon
-TAG=dev-2022-09-28
+# allow REGISTRY, TAG to be overridden by environment variables
+DEFAULT_REGISTRY=sergeyneon
+DEFAULT_TAG=dev-2022-09-28
+REGISTRY="$( ( set -u; echo "$REGISTRY" ) 2>/dev/null || echo "$DEFAULT_REGISTRY" )"
+TAG="$( ( set -u; echo "$TAG" ) 2>/dev/null || echo "$DEFAULT_TAG" )"
 
 echo virt-prerunner
 docker buildx build \
