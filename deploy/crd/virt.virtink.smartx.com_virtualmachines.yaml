@@ -1393,6 +1393,19 @@ spec:
                   - name
                   type: object
                 type: array
+              sidecars:
+                description: Sidecars is a list of Containers to be run in the pod alongside the
+                  VirtualMachine
+                items:
+                  description: A single application container that you want to run within a pod.
+                  type: object
+                  x-kubernetes-preserve-unknown-fields: true
+                  properties:
+                    name:
+                      type: string
+                  required:
+                    - name
+                type: array
             required:
             - instance
             type: object

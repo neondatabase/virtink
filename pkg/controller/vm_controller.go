@@ -294,6 +294,8 @@ func (r *VMReconciler) buildVMPod(ctx context.Context, vm *virtv1alpha1.VirtualM
 		},
 	}
 
+	vmPod.Spec.Containers = append(vmPod.Spec.Containers, vm.Spec.Sidecars...)
+
 	if vmPod.Labels == nil {
 		vmPod.Labels = map[string]string{}
 	}
