@@ -1287,6 +1287,10 @@ spec:
                 - Manual
                 - Halted
                 type: string
+              schedulerName:
+                description: If specified, the VM's pod will be dispatched by the specified
+                  scheduler. If not specified, the pod will be dispatched by the default scheduler
+                type: string
               tolerations:
                 items:
                   description: The pod this Toleration is attached to tolerates any

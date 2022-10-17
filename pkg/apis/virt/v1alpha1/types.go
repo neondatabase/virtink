@@ -28,6 +28,7 @@ type VirtualMachineSpec struct {
 	NodeSelector   map[string]string           `json:"nodeSelector,omitempty"`
 	Affinity       *corev1.Affinity            `json:"affinity,omitempty"`
 	Tolerations    []corev1.Toleration         `json:"tolerations,omitempty"`
+	SchedulerName  string                      `json:"schedulerName,omitempty"`
 	Resources      corev1.ResourceRequirements `json:"resources,omitempty"`
 	LivenessProbe  *corev1.Probe               `json:"livenessProbe,omitempty"`
 	ReadinessProbe *corev1.Probe               `json:"readinessProbe,omitempty"`

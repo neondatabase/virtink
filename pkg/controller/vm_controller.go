@@ -270,6 +270,7 @@ func (r *VMReconciler) buildVMPod(ctx context.Context, vm *virtv1alpha1.VirtualM
 			NodeSelector:  vm.Spec.NodeSelector,
 			Tolerations:   vm.Spec.Tolerations,
 			Affinity:      vm.Spec.Affinity,
+			SchedulerName: vm.Spec.SchedulerName,
 			Containers: []corev1.Container{{
 				Name:           "cloud-hypervisor",
 				Image:          r.PrerunnerImageName,
