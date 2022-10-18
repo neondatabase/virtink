@@ -1291,6 +1291,10 @@ spec:
                 description: If specified, the VM's pod will be dispatched by the specified
                   scheduler. If not specified, the pod will be dispatched by the default scheduler
                 type: string
+              serviceAccountName:
+                description: 'ServiceAccountName is the name of the ServiceAccount to use to run this
+                  pod. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/'
+                type: string
               tolerations:
                 items:
                   description: The pod this Toleration is attached to tolerates any
