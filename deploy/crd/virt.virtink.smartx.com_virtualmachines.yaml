@@ -1414,6 +1414,18 @@ spec:
                   required:
                     - name
                 type: array
+              sidecarVolumes:
+                description: 'List of volumes that can be mounted by sidecars belonging to the pod.
+                  More info: https://kubernetes.io/docs/concepts/storage/volumes'
+                items:
+                  type: object
+                  x-kubernetes-preserve-unknown-fields: true
+                  properties:
+                    name:
+                      type: string
+                  required:
+                    - name
+                type: array
             required:
             - instance
             type: object

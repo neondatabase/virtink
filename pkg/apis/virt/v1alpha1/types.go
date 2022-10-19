@@ -39,7 +39,9 @@ type VirtualMachineSpec struct {
 	Instance Instance           `json:"instance"`
 	Volumes  []Volume           `json:"volumes,omitempty"`
 	Networks []Network          `json:"networks,omitempty"`
-	Sidecars []corev1.Container `json:"sidecars,omitempty"`
+
+	Sidecars     []corev1.Container `json:"sidecars,omitempty"`
+	SidecarVolumes []corev1.Volume    `json:"sidecarVolumes,omitempty"`
 }
 
 // +kubebuilder:validation:Enum=Always;RerunOnFailure;Once;Manual;Halted
