@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/http"
 
-	virtv1alpha1 "github.com/smartxworks/virtink/pkg/generated/clientset/versioned/typed/virt/v1alpha1"
+	virtv1alpha1 "github.com/neondatabase/virtink/pkg/generated/clientset/versioned/typed/virt/v1alpha1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"

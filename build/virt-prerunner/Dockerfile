@@ -27,7 +27,7 @@ RUN set -eux; \
         'aarch64') \
             curl -sLo /usr/bin/cloud-hypervisor https://github.com/cloud-hypervisor/cloud-hypervisor/releases/download/v26.0/cloud-hypervisor-static-aarch64; \
             curl -sLo /usr/bin/ch-remote https://github.com/cloud-hypervisor/cloud-hypervisor/releases/download/v26.0/ch-remote-static-aarch64; \
-            curl -sLo /var/lib/cloud-hypervisor/CLOUDHV_EFI.fd https://github.com/smartxworks/cloud-hypervisor-edk2-builder/releases/download/20220706/CLOUDHV_EFI.fd; \
+            curl -sLo /var/lib/cloud-hypervisor/CLOUDHV_EFI.fd https://github.com/neondatabase/cloud-hypervisor-edk2-builder/releases/download/20220706/CLOUDHV_EFI.fd; \
             ;; \
         *) echo >&2 "error: unsupported architecture '$(uname -m)'"; exit 1 ;; \
     esac; \

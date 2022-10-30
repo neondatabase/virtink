@@ -11,9 +11,9 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	virtv1alpha1 "github.com/smartxworks/virtink/pkg/apis/virt/v1alpha1"
-	"github.com/smartxworks/virtink/pkg/daemon"
-	"github.com/smartxworks/virtink/pkg/daemon/tcpproxy"
+	virtv1alpha1 "github.com/neondatabase/virtink/pkg/apis/virt/v1alpha1"
+	"github.com/neondatabase/virtink/pkg/daemon"
+	"github.com/neondatabase/virtink/pkg/daemon/tcpproxy"
 )
 
 var (

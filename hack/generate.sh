@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 bash $GOPATH/src/k8s.io/code-generator/generate-groups.sh "deepcopy,client,informer,lister" \
-  github.com/smartxworks/virtink/pkg/generated github.com/smartxworks/virtink/pkg/apis \
+  github.com/neondatabase/virtink/pkg/generated github.com/neondatabase/virtink/pkg/apis \
   virt:v1alpha1 \
   --go-header-file ./hack/boilerplate.go.txt
 

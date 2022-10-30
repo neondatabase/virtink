@@ -22,9 +22,9 @@ import (
 	"github.com/subgraph/libmacouflage"
 	"github.com/vishvananda/netlink"
 
-	virtv1alpha1 "github.com/smartxworks/virtink/pkg/apis/virt/v1alpha1"
-	"github.com/smartxworks/virtink/pkg/cloudhypervisor"
-	"github.com/smartxworks/virtink/pkg/cpuset"
+	virtv1alpha1 "github.com/neondatabase/virtink/pkg/apis/virt/v1alpha1"
+	"github.com/neondatabase/virtink/pkg/cloudhypervisor"
+	"github.com/neondatabase/virtink/pkg/cpuset"
 )
 
 func main() {

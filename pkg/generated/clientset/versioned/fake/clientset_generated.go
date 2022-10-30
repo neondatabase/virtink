@@ -3,9 +3,9 @@
 package fake
 
 import (
-	clientset "github.com/smartxworks/virtink/pkg/generated/clientset/versioned"
-	virtv1alpha1 "github.com/smartxworks/virtink/pkg/generated/clientset/versioned/typed/virt/v1alpha1"
-	fakevirtv1alpha1 "github.com/smartxworks/virtink/pkg/generated/clientset/versioned/typed/virt/v1alpha1/fake"
+	clientset "github.com/neondatabase/virtink/pkg/generated/clientset/versioned"
+	virtv1alpha1 "github.com/neondatabase/virtink/pkg/generated/clientset/versioned/typed/virt/v1alpha1"
+	fakevirtv1alpha1 "github.com/neondatabase/virtink/pkg/generated/clientset/versioned/typed/virt/v1alpha1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"

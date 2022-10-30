@@ -8,7 +8,7 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 
-	virtv1alpha1 "github.com/smartxworks/virtink/pkg/apis/virt/v1alpha1"
+	virtv1alpha1 "github.com/neondatabase/virtink/pkg/apis/virt/v1alpha1"
 )
 
 func TestValidateVM(t *testing.T) {

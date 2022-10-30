@@ -5,8 +5,8 @@ package v1alpha1
 import (
 	"net/http"
 
-	v1alpha1 "github.com/smartxworks/virtink/pkg/apis/virt/v1alpha1"
-	"github.com/smartxworks/virtink/pkg/generated/clientset/versioned/scheme"
+	v1alpha1 "github.com/neondatabase/virtink/pkg/apis/virt/v1alpha1"
+	"github.com/neondatabase/virtink/pkg/generated/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
 

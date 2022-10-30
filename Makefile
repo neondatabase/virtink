@@ -14,7 +14,7 @@ all: test
 generate:
 	iidfile=$$(mktemp /tmp/iid-XXXXXX) && \
 	docker build -f hack/Dockerfile --iidfile $$iidfile . && \
-	docker run --rm -v $$PWD:/go/src/github.com/smartxworks/virtink -w /go/src/github.com/smartxworks/virtink $$(cat $$iidfile) ./hack/generate.sh && \
+	docker run --rm -v $$PWD:/go/src/github.com/neondatabase/virtink -w /go/src/github.com/neondatabase/virtink $$(cat $$iidfile) ./hack/generate.sh && \
 	rm -rf $$iidfile
 
 fmt:

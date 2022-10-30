@@ -5,7 +5,7 @@ import (
 
 	assert "github.com/stretchr/testify/require"
 
-	"github.com/smartxworks/virtink/pkg/cpuset"
+	"github.com/neondatabase/virtink/pkg/cpuset"
 )
 
 func TestParse(t *testing.T) {

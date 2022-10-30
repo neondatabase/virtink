@@ -1,4 +1,4 @@
-module github.com/smartxworks/virtink
+module github.com/neondatabase/virtink
 
 go 1.17
 

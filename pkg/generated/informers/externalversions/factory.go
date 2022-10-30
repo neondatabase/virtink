@@ -7,9 +7,9 @@ import (
 	sync "sync"
 	time "time"
 
-	versioned "github.com/smartxworks/virtink/pkg/generated/clientset/versioned"
-	internalinterfaces "github.com/smartxworks/virtink/pkg/generated/informers/externalversions/internalinterfaces"
-	virt "github.com/smartxworks/virtink/pkg/generated/informers/externalversions/virt"
+	versioned "github.com/neondatabase/virtink/pkg/generated/clientset/versioned"
+	internalinterfaces "github.com/neondatabase/virtink/pkg/generated/informers/externalversions/internalinterfaces"
+	virt "github.com/neondatabase/virtink/pkg/generated/informers/externalversions/virt"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

@@ -15,7 +15,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 	"sigs.k8s.io/controller-runtime/pkg/webhook/admission"
 
-	virtv1alpha1 "github.com/smartxworks/virtink/pkg/apis/virt/v1alpha1"
+	virtv1alpha1 "github.com/neondatabase/virtink/pkg/apis/virt/v1alpha1"
 )
 
 // +kubebuilder:webhook:path=/mutate-v1alpha1-virtualmachine,mutating=true,failurePolicy=fail,sideEffects=None,groups=virt.virtink.smartx.com,resources=virtualmachines,verbs=create;update,versions=v1alpha1,name=mutate.virtualmachine.v1alpha1.virt.virtink.smartx.com,admissionReviewVersions={v1,v1beta1}
