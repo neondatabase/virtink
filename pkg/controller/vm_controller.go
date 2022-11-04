@@ -666,20 +666,26 @@ func (r *VMReconciler) calculateMigratableCondition(ctx context.Context, vm *vir
 	}
 
 	for _, volume := range vm.Spec.Volumes {
-		if volume.ContainerRootfs != nil {
+		// Note whether the volume is ever mounted *without* readonly
+		var writeMounted bool
+		for _, disk := range vm.Spec.Instance.Disks {
+			writeMounted = writeMounted || disk.Name == volume.Name && (disk.ReadOnly == nil || !*disk.ReadOnly)
+		}
+
+		if volume.ContainerRootfs != nil && writeMounted {
 			return &metav1.Condition{
 				Type:    string(virtv1alpha1.VirtualMachineMigratable),
 				Status:  metav1.ConditionFalse,
 				Reason:  "VolumeNotMigratable",
-				Message: "migration is disabled when VM has a containerRootfs volume",
+				Message: "migration is disabled when VM has a containerRootfs volume not mounted as readonly",
 			}, nil
 		}
-		if volume.ContainerDisk != nil {
+		if volume.ContainerDisk != nil && writeMounted {
 			return &metav1.Condition{
 				Type:    string(virtv1alpha1.VirtualMachineMigratable),
 				Status:  metav1.ConditionFalse,
 				Reason:  "VolumeNotMigratable",
-				Message: "migration is disabled when VM has a containerDisk volume",
+				Message: "migration is disabled when VM has a containerDisk volume not mounted as readonly",
 			}, nil
 		}
 	}
